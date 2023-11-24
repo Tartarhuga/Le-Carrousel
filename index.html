@@ -18,6 +18,9 @@
 			$currentImg.css('display', 'block');
 
 			$('.next').click(function(){
+				var audio = document.getElementById("snd");
+				audio.currentTime = 0.2; 
+            	audio.play();
 				i++;
 				if( i <= indexImg ){
 					$currentImg.fadeOut(500);
@@ -33,6 +36,9 @@
 			});
 
 			$('.prev').click(function(){
+				var audio = document.getElementById("snd");
+				audio.currentTime = 0.2; 
+            	audio.play();
 				i--; 
 				if( i >= 0 ){
 					$currentImg.fadeOut(500);
@@ -143,6 +149,7 @@
 		<img class="next" src="right.png" alt="">
 	</div>
 	<img id="sign" src="pic 9.gif">
+	<audio id="snd" src="next.mp3"></audio>
 
 </body>
 </html>
