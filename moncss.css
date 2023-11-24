@@ -1,0 +1,55 @@
+header{
+	text-align: center;
+	padding-top: 40px;
+}
+header img{
+	max-width: 100%;
+	max-height: 100%;
+}
+.prev{
+	position: relative;
+	left: -600px;
+	height: 250px;
+	width: 450px;
+}
+.next{
+	position: relative;
+	height: 250px;
+	width: 450px;
+}
+body, html {
+	/* Il faut être sûr que il n'y a pas de marge / padding sinon le blur ne prend pas tout l'écran */
+	margin: 0; 
+	padding: 0;
+	overflow: hidden;
+	height: 100%;
+	width: 100%; 
+  }
+  body {
+	background-image: url(backgroundimg.jpg);
+	backdrop-filter: blur(5px);
+  }
+  
+#carrousel {
+	position: relative;
+	height: 200px;
+	width: 700px;
+	margin: auto;
+}
+#carrousel ul li{
+	list-style: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#bouton {
+	position: relative;
+	padding-top: 270px;
+	padding-bottom: 10px;
+	padding-left: 850px;
+}
+#sign{
+	position: absolute;
+	bottom: 0px;
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Le Carroussel</title>
+	<link href="moncss.css" rel="stylesheet" type="text/css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var $carrousel = $('#carrousel');
+			$("#fun").hide();
+			$img = $('#carrousel img'), 
+			indexImg = $img.length - 1, //On definit le nombre d'img
+			i = 0, //initialisation à l'image 1
+			$currentImg = $img.eq(i);
+			$img.css('display', 'none'); 
+			$currentImg.css('display', 'block');
+
+			$('.next').click(function(){
+				i++;
+				if( i <= indexImg ){
+					$currentImg.fadeOut(500);
+					$currentImg = $img.eq(i);
+					$currentImg.fadeIn(500);
+				}
+				else{
+					$currentImg.fadeOut(500);
+					i = 0;
+					$currentImg = $img.eq(i);
+					$currentImg.fadeIn(500);
+				}
+			});
+
+			$('.prev').click(function(){
+				i--; 
+				if( i >= 0 ){
+					$currentImg.fadeOut(500);
+					$currentImg = $img.eq(i);
+					$currentImg.fadeIn(500);
+				}
+				else{
+					$currentImg.fadeOut(500);
+					i = 8;
+					$currentImg = $img.eq(i);
+					$currentImg.fadeIn(500);
+				}
+			});
+			$("#sign").click(function(){
+				$('#carrousel ul li').hide();
+				$('#fun').show();
+				var easter_egg = document.getElementById("fun");
+				easter_egg.play();
+				setTimeout(function() {
+    				$('#fun').hide();
+    				easter_egg.pause();
+    				easter_egg.currentTime = 0;
+    				$('#carrousel ul li').show();
+  				}, 140000);
+			});
+
+			function slideImg(){
+				setTimeout(function(){
+
+					if (i < indexImg){
+						i++;
+					}
+
+					else {
+						i = 0;
+					}
+
+					$currentImg.fadeOut(500);
+					$currentImg = $img.eq(i);
+					$currentImg.fadeIn(500);
+					slideImg();}, 4000);
+			}
+			slideImg();
+
+			// $('.Img1').click(function(){
+			// 	i=0
+			// 	$currentImg.fadeOut(500);
+			// 	$currentImg = $img.eq(i);
+			// 	$currentImg.fadeIn(500);
+			// });
+			// $('.Img2').click(function(){
+			// 	i=1
+			// 	$currentImg.fadeOut(500);
+			// 	$currentImg = $img.eq(i);
+			// 	$currentImg.fadeIn(500);
+			// });
+			// $('.Img3').click(function(){
+			// 	i=2
+			// 	$currentImg.fadeOut(500);
+			// 	$currentImg = $img.eq(i);
+			// 	$currentImg.fadeIn(500);
+			// });
+			// $('.Img4').click(function(){
+			// 	i=3
+			// 	$currentImg.fadeOut(500);
+			// 	$currentImg = $img.eq(i);
+			// 	$currentImg.fadeIn(500);
+			// });
+			// $('.Img5').click(function(){
+			// 	i=4
+			// 	$currentImg.fadeOut(500);
+			// 	$currentImg = $img.eq(i);
+			// 	$currentImg.fadeIn(500);
+			// });
+			// $('.Img6').click(function(){
+			// 	i=5
+			// 	$currentImg.fadeOut(500);
+			// 	$currentImg = $img.eq(i);
+			// 	$currentImg.fadeIn(500);
+			// });
+			// $('.Img7').click(function(){
+			// 	i=6
+			// 	$currentImg.fadeOut(500);
+			// 	$currentImg = $img.eq(i);
+			// 	$currentImg.fadeIn(500);
+			// });
+		});
+	</script>
+</head>
+<body>
+	<header><img src="cool_logo.png" alt=""></header>
+	<div id="carrousel">
+		<ul>
+			<li><img src="pic 1.1.jpg" width="700" height="400.jpg"/></li>
+			<li><img src="pic 1.2.jpg" width="700" height="400.jpg"/></li>
+			<li><img src="pic 1.3.jpeg" width="700" height="400.jpg"/></li>
+			<li><img src="pic 2.jpg" width="700" height="400.jpg"/></li>
+			<li><img src="pic 3.jpg" width="700" height="400.jpg"/></li>
+			<li><img src="pic 4.gif" width="700" height="400.jpg"/></li>
+			<li><img src="pic 5.jpeg" width="700" height="400.jpg"/></li>
+			<li><img src="pic 6.jpg" width="700" height="400.jpg"/></li>
+			<li><img src="pic 7.jpeg" width="700" height="400.jpg"/></li>
+		</ul>
+		<video id="fun" src="intro.mp4" width="700" height="400.jpg"></video>
+	</div>
+	<div id="bouton">
+		<img class="prev" src="leftpic.png" alt="">
+		<img class="next" src="right.png" alt="">
+	</div>
+	<img id="sign" src="pic 9.gif">
+
+</body>
+</html>
